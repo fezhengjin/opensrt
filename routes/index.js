@@ -28,14 +28,14 @@ function getSrtUrl(obj) {
 
 function processStr(srt) {
   var reg = /[\n\d: ->]+/g;
-  return srt.replace(reg, '\n');
+  return srt.replace(reg, '</p><p>');
 };
 
 function showSrt(pageUrl, srtUrl, title, res) {
   request(srtUrl, function(err, _res, body) {
     if (err) throw err;
     res.render('index', {
-      title: title || '网易公开课字幕助手',
+      title: title,
       pageUrl: pageUrl,
       content: processStr(body),
     });
@@ -53,7 +53,7 @@ function showNoSrt(pageUrl, title, res) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (!req.query.pageUrl) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: '网易公开课字幕助手' });
     return;
   }
 

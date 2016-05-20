@@ -11,6 +11,6 @@
       <input name="pageUrl" type="text" value="{{ pageUrl }}"/>
       <input type="submit" value="提交"/>
     </form>
-    <p>{{ content }}</p>
+    <p>{{{ content }}}</p>
   </body>
 </html>
