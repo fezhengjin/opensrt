@@ -1,0 +1,9 @@
+{
+    apps: [{
+        "name": "xsky-osroad",
+        "script": "./bin/www",
+        "watch": false,
+        "exec_interpreter" : "babel-node",
+        "exec_mode": "fork"
+    }]
+}
