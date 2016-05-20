@@ -28,7 +28,7 @@ function getSrtUrl(obj) {
 
 function processStr(srt) {
   var reg = /[\n\d: ->]+/g;
-  return srt.replace(reg, '</p><p>');
+  return srt.replace(reg, '');
 };
 
 function showSrt(pageUrl, srtUrl, title, res) {
