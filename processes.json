@@ -1,9 +1,8 @@
 {
     apps: [{
-        "name": "xsky-osroad",
+        "name": "opensrt",
         "script": "./bin/www",
         "watch": false,
-        "exec_interpreter" : "babel-node",
         "exec_mode": "fork"
     }]
 }
