@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <p>请提交网易公开课页面地址：</p>
+    <form method="GET" action="/">
+      <input name="pageUrl" type="text" value="{{ pageUrl }}"/>
+      <input type="submit" value="提交"/>
+    </form>
+    <p>{{ content }}</p>
+  </body>
+</html>
