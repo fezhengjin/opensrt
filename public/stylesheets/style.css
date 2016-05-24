@@ -1,10 +1,17 @@
 body {
   padding: 50px;
   font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f5f5d5;
+  line-height: 120%;
 }
 
 a {
   color: #00B7FF;
+}
+
+input[type=text] {
+  line-height: 26px;
+  width: 200px;
 }
 
 @media screen and (max-width: 600px) {

@@ -27,8 +27,25 @@ function getSrtUrl(obj) {
 }
 
 function processStr(srt) {
-  var reg = /[\n\d: ->]+/g;
-  return srt.replace(reg, '');
+  var list = srt.replace(/[\d:]+,\d+ --> [\d:]+,\d+/g, '').split(/[\n\r]*\d*[\n\r]+/);
+  var content = [''];
+  list.forEach(function(curr) {
+    var prev = content[content.length - 1];
+    if (prev && prev.length > 200) {
+      content.push(curr);
+    } else if(curr.trim().length) {
+      content[content.length - 1] = [prev, (!/[?？。！]+/.test(prev) && prev.trim().length) ? '，' : '' , curr].join('');
+    }
+  });
+  return content.reduce(function(prev, curr) {
+    return [prev, /[?？。！]+$/.test(prev) ? '' : '。', '</p><p>', curr].join('');
+  });
+  // return list.reduce(function(prev, prev) {
+  //   if (prev.length > 300) {
+  //     return prev + '。\n';
+  //   }
+  //   return [prev, prev].join('，');
+  // });
 };
 
 function showSrt(pageUrl, srtUrl, title, res) {
@@ -37,7 +54,7 @@ function showSrt(pageUrl, srtUrl, title, res) {
     res.render('index', {
       title: title,
       pageUrl: pageUrl,
-      content: processStr(body),
+      content: processStr(body.toString()),
     });
   });
 };
